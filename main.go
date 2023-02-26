@@ -14,8 +14,6 @@ type Store struct {
 	clock clock
 }
 
-//var NotFoundError = errors.New("key not found")
-
 func (s *Store) set(key string, value []byte, TTLMilliseconds ...int64) error {
 	var ttl int64 = 0
 	if len(TTLMilliseconds) > 0 {
