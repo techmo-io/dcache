@@ -1,0 +1,14 @@
+### get a key
+GET http://localhost:7001/get/k1
+
+### key exists?
+GET http://localhost:7001/has/k1
+
+### key exists?
+GET http://localhost:7001/has/k2
+
+### set key
+PUT http://localhost:7001/put/k1
+Content-Type: text/plain
+
+value
