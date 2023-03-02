@@ -22,8 +22,8 @@ func TestCluster_HashLookup(t *testing.T) {
 	})
 
 	expected := []string{"a", "a", "a", "a", "a", "a", "b", "b", "b", "a", "a", "a", "a", "a", "b", "b", "b", "b", "b", "a"}
-	if !slicesAreEqual(c.hashLookup, expected) {
-		t.Errorf("calculated hash lookup != expected. %v != %v", c.hashLookup, expected)
+	if !slicesAreEqual(c.HashLookup, expected) {
+		t.Errorf("calculated hash lookup != expected. %v != %v", c.HashLookup, expected)
 	}
 }
 
@@ -44,14 +44,14 @@ func TestCluster_HashLookupIsValid(t *testing.T) {
 		HashPoints: nil,
 	})
 
-	if len(c.hashLookup) != config.HashSpaceSize {
-		t.Errorf("lookup has invalid size.  got != want. %v != %v", len(c.hashLookup), c.config.HashSpaceSize)
+	if len(c.HashLookup) != config.HashSpaceSize {
+		t.Errorf("lookup has invalid size.  got != want. %v != %v", len(c.HashLookup), c.Config.HashSpaceSize)
 	}
 
 	var hasA, hasB bool
-	for _, UUID := range c.hashLookup {
+	for _, UUID := range c.HashLookup {
 		if UUID != "a" && UUID != "b" {
-			t.Errorf("lookup has invalid node UUID = %v. expected a or b", UUID)
+			t.Errorf("lookup has invalid Nodes UUID = %v. expected a or b", UUID)
 		}
 		if UUID == "a" {
 			hasA = true
